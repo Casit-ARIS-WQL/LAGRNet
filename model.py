@@ -113,7 +113,7 @@ class UpRCL(nn.Module):
         return self.rcl(torch.cat([x,skip],1))
 
 
-class AlgebraicGeoNet(nn.Module):
+class LAGRNet(nn.Module):
     def __init__(self, backbone='swin_base_patch4_window12_384', pretrained=False):
         super().__init__()
         import timm
