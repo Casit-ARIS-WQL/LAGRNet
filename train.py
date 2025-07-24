@@ -59,7 +59,7 @@ def train_step(model,opt,batch,device,lmbd=(1,0.5,0.2,0.1)):
 # — main —
 if __name__ == '__main__':
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    net = AlgebraicGeoNet(pretrained=False).to(device)
+    net = LAGRNet(pretrained=False).to(device)
     print("network:", net)
     opt = torch.optim.AdamW(net.parameters(), lr=2e-4, weight_decay=1e-2)
     loader = DataLoader(DummySet(), batch_size=2,
