@@ -1,0 +1,625 @@
+{
+  "date": "2026-09-29",
+  "architecture": "Four single-input Avg Pool RCLs with learned softmax Fuse; overlapping-window Cech 1-skeleton and ReLU SM",
+  "upstream_commit": "1560157222b1ba3958def21e73adbc2e9167577a",
+  "manuscript_sha256": "db7015a9f5e7ac77308920020aab8e2103f798322a220ba046f155ae18606fae",
+  "checkpoint_format_version": 3,
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "22",
+    "time": "13.168",
+    "timestamp": "2026-09-29T12:25:38.019515+08:00",
+    "hostname": "macbook.local"
+  },
+  "default_forward": {
+    "backbone": "swin_base_patch4_window7_224",
+    "pretrained": false,
+    "parameters": 72148029,
+    "components": {
+      "backbone": 59436664,
+      "gfm": 54696,
+      "align1": 0,
+      "align2": 0,
+      "rcl1": 590343,
+      "rcl2": 2360327,
+      "sm": 8635008,
+      "align_fuse1": 98560,
+      "rcl_fuse1": 590343,
+      "align_fuse0": 49280,
+      "rcl_fuse0": 147719,
+      "decoder": 185089
+    },
+    "rcl_blocks": {
+      "rcl1": {
+        "input": [
+          1,
+          256,
+          65,
+          65
+        ],
+        "output": [
+          1,
+          256,
+          33,
+          33
+        ],
+        "degree_grids": [
+          [
+            65,
+            65
+          ],
+          [
+            33,
+            33
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "fusion_weights": [
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548
+        ]
+      },
+      "rcl2": {
+        "input": [
+          1,
+          512,
+          33,
+          33
+        ],
+        "output": [
+          1,
+          512,
+          17,
+          17
+        ],
+        "degree_grids": [
+          [
+            33,
+            33
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion_weights": [
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548
+        ]
+      },
+      "rcl_fuse1": {
+        "input": [
+          1,
+          256,
+          33,
+          33
+        ],
+        "output": [
+          1,
+          256,
+          33,
+          33
+        ],
+        "degree_grids": [
+          [
+            33,
+            33
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion_weights": [
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548
+        ]
+      },
+      "rcl_fuse0": {
+        "input": [
+          1,
+          128,
+          130,
+          130
+        ],
+        "output": [
+          1,
+          128,
+          130,
+          130
+        ],
+        "degree_grids": [
+          [
+            130,
+            130
+          ],
+          [
+            65,
+            65
+          ],
+          [
+            33,
+            33
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "fusion_weights": [
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548,
+          0.1428571492433548
+        ]
+      }
+    },
+    "prediction": [
+      1,
+      1,
+      518,
+      518
+    ],
+    "finite": true,
+    "finite_sheaf_energy": true,
+    "patch_grid": [
+      7,
+      7
+    ],
+    "patches": 49,
+    "patch_edges": 156,
+    "patch_bounds": [
+      [
+        0,
+        3,
+        0,
+        3
+      ],
+      [
+        0,
+        3,
+        1,
+        5
+      ],
+      [
+        0,
+        3,
+        3,
+        8
+      ],
+      [
+        0,
+        3,
+        6,
+        10
+      ],
+      [
+        0,
+        3,
+        8,
+        13
+      ],
+      [
+        0,
+        3,
+        11,
+        15
+      ],
+      [
+        0,
+        3,
+        13,
+        17
+      ],
+      [
+        1,
+        5,
+        0,
+        3
+      ],
+      [
+        1,
+        5,
+        1,
+        5
+      ],
+      [
+        1,
+        5,
+        3,
+        8
+      ],
+      [
+        1,
+        5,
+        6,
+        10
+      ],
+      [
+        1,
+        5,
+        8,
+        13
+      ],
+      [
+        1,
+        5,
+        11,
+        15
+      ],
+      [
+        1,
+        5,
+        13,
+        17
+      ],
+      [
+        3,
+        8,
+        0,
+        3
+      ],
+      [
+        3,
+        8,
+        1,
+        5
+      ],
+      [
+        3,
+        8,
+        3,
+        8
+      ],
+      [
+        3,
+        8,
+        6,
+        10
+      ],
+      [
+        3,
+        8,
+        8,
+        13
+      ],
+      [
+        3,
+        8,
+        11,
+        15
+      ],
+      [
+        3,
+        8,
+        13,
+        17
+      ],
+      [
+        6,
+        10,
+        0,
+        3
+      ],
+      [
+        6,
+        10,
+        1,
+        5
+      ],
+      [
+        6,
+        10,
+        3,
+        8
+      ],
+      [
+        6,
+        10,
+        6,
+        10
+      ],
+      [
+        6,
+        10,
+        8,
+        13
+      ],
+      [
+        6,
+        10,
+        11,
+        15
+      ],
+      [
+        6,
+        10,
+        13,
+        17
+      ],
+      [
+        8,
+        13,
+        0,
+        3
+      ],
+      [
+        8,
+        13,
+        1,
+        5
+      ],
+      [
+        8,
+        13,
+        3,
+        8
+      ],
+      [
+        8,
+        13,
+        6,
+        10
+      ],
+      [
+        8,
+        13,
+        8,
+        13
+      ],
+      [
+        8,
+        13,
+        11,
+        15
+      ],
+      [
+        8,
+        13,
+        13,
+        17
+      ],
+      [
+        11,
+        15,
+        0,
+        3
+      ],
+      [
+        11,
+        15,
+        1,
+        5
+      ],
+      [
+        11,
+        15,
+        3,
+        8
+      ],
+      [
+        11,
+        15,
+        6,
+        10
+      ],
+      [
+        11,
+        15,
+        8,
+        13
+      ],
+      [
+        11,
+        15,
+        11,
+        15
+      ],
+      [
+        11,
+        15,
+        13,
+        17
+      ],
+      [
+        13,
+        17,
+        0,
+        3
+      ],
+      [
+        13,
+        17,
+        1,
+        5
+      ],
+      [
+        13,
+        17,
+        3,
+        8
+      ],
+      [
+        13,
+        17,
+        6,
+        10
+      ],
+      [
+        13,
+        17,
+        8,
+        13
+      ],
+      [
+        13,
+        17,
+        11,
+        15
+      ],
+      [
+        13,
+        17,
+        13,
+        17
+      ]
+    ],
+    "sheaf_activation": "ReLU",
+    "forward_seconds_cpu_not_gpu_benchmark": 4.576129877008498
+  },
+  "cli_integration": {
+    "checkpoint_format_version": 3,
+    "synthetic_fixtures_only": true,
+    "backbone": "real Swin-Tiny, reduced test channels",
+    "architecture": "four single-input Avg Pool RCLs, learned Fuse, overlapping-patch Cech graph and ReLU",
+    "commands_passed": [
+      "train.py",
+      "train.py",
+      "inference.py",
+      "evaluate.py"
+    ],
+    "checkpoint_resume_passed": true,
+    "original_resolution_export_passed": true,
+    "benchmark_results_produced": false
+  },
+  "distributed": {
+    "world_size": 2,
+    "backend": "gloo",
+    "init": "file store",
+    "fixture": "explicit small backbone, random images; not a benchmark",
+    "five_losses": [
+      "depth",
+      "grp",
+      "pho",
+      "sheaf",
+      "sm",
+      "total"
+    ],
+    "broadcast_buffers": false,
+    "gradient_synchronized": true,
+    "optimizer_steps": 2,
+    "learned_fuse_gradient": true,
+    "sheaf_edges": 36
+  },
+  "source_sha256": {
+    "configs/__init__.py": "238afb1467aeba3570ff9c8e26615799fde3084808295dc68462acbeb4a998c5",
+    "configs/kitti_config.py": "f19d6169c1890f2734a828af79dc3668a29318d6ddcfb8faacdb946c23443b34",
+    "configs/paper.py": "0d7d0457671eb5d3215667bf0c3f1f541be2d9480a705f3a8e0cc4165ea802d8",
+    "datasets/__init__.py": "7dc5cda4e1299824ef684fb947a2c267bbfd99d5c37cc50063377fb8ebf41ae8",
+    "datasets/kitti_dataset.py": "7db20d9225686b8b268b7d035de9a1e53a63fb08ebb35a7a297b55f1553466d4",
+    "datasets/relative_depth.py": "8dde748209108dda8943d84ac5f6b1b343536b41dbeb274506d3f1e2ccfd3b30",
+    "engine.py": "5deda0d5e485a5eac81f0e7427cca7254037e3c55e9d387cde55c601ed2e2dce",
+    "evaluate.py": "a1a97b10a84f9f33779e276daf56f1f1565a63fb90f15d98f1ecf11c6b97b6fb",
+    "evaluation.py": "eb60b9c0d537580f2ddc285c7ddb7bc87aeee5c5aebc56ac2ef9e9187784b633",
+    "geometry.py": "1fc922e87b531a12da8aeee66bace1294f9887c46d95c9b3fd6518eb2c2860f1",
+    "inference.py": "93634118784f35edc7c28583eabe613985041e14d26e5f9c69654d8c936de76e",
+    "losses.py": "4d1b03a44a88757eba61e144d4f9d93bcac3d32c5d0de0d440befffe1cc259e2",
+    "model.py": "edcd2d05d012801d521ec686832d6615406476608d442ea773047d80cdc528b2",
+    "model_complexity.py": "f4138ac6325ff97120a50cbc7f420cb2f35e7347d3ab4179cd8e1402183f2347",
+    "tests/check_distributed.py": "697398ec5497e807d1a2029512410575ab621c15eff391e3e344538293ff7632",
+    "tests/conftest.py": "f1058485726a941dec5d0d67478e1c0c3c462eb5aed3b5b82c18aebd91095f0e",
+    "tests/test_geometry.py": "2da438aa20780e21c95b1537ebf7b2beeb25020e533e10cc15d7c1034301f5a7",
+    "tests/test_modules.py": "056541832ae8b584c12729f095b10cd7e7e9fbc982dd561a326ed530398011d3",
+    "tests/test_pipeline.py": "730d2e955ec90de6aeba9bcb91dc714c20accc4598003503723bf323a67e9699",
+    "train.py": "c51daf209da8aacf1ed5a3625731ea8b7eb46e81334545bc9502e72b7f587265"
+  },
+  "limitations": [
+    "No full 480K training",
+    "No four-H20 CUDA/NCCL validation",
+    "No paper benchmark reproduction",
+    "No new A100 timing or FLOPs measurement",
+    "No public GitHub update"
+  ]
+}
