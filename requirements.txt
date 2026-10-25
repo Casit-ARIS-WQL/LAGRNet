@@ -1,0 +1,7 @@
+# Python >= 3.10; tested CPU environment is separately frozen after verification.
+torch>=2.2,<3
+torchvision>=0.17,<1
+timm>=1.0.15,<1.1
+numpy>=1.26,<2
+Pillow>=10
+pytest>=8,<10
